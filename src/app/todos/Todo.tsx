@@ -1,5 +1,5 @@
 import React from 'react'
-import {type Todo} from '@/app/_types/todos/Todo'
+import {Todo} from '@/app/_types/todos/Todo'
 
 const TodoItem: React.FC<Todo> = (todo) => {
   return <>
