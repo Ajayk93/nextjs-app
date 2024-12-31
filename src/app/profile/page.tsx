@@ -4,6 +4,9 @@ import React, { useEffect } from 'react';
 
 type GeoLocation = {
     city: string;
+    country: string, 
+    countryRegion: string, 
+    region: string 
 }
 
 const ProfilePage: React.FC = () => {
