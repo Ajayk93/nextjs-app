@@ -1,24 +1,28 @@
 "use client"
+import { get } from 'http';
 import React, { useEffect } from 'react';
 
 type GeoLocation = {
     city: string;
-    country: string;
-    ip: string;
-    loc: string;
-    org: string;
-    postal: string;
-    region: string;
 }
+
 const ProfilePage: React.FC = () => {
     const [geoLocation, setGeoLocation] = React.useState<GeoLocation | null>(null);
 
     useEffect(() => {
-        fetch('https://spiderweb-ajayk93-cuat.vercel.app/api/geoip')
-            .then(response => response.json())
-            .then(data => setGeoLocation(data as GeoLocation))
-            .catch(error => console.error('Error fetching geo location:', error));
-    }, []);
+        async function fetchGeoLocation() {
+            try{
+                const response =  await fetch('https://spiderweb-ajayk93-cuat.vercel.app/api/geoip')
+                const result: GeoLocation  = await response.json();
+                setGeoLocation(result)
+            }
+            catch(error){
+                console.error('Error fetching geo location:', error);
+            }
+       }
+        fetchGeoLocation();
+        }, 
+    []);
 
     console.log('geoLocation:', geoLocation);
     return (
