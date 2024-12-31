@@ -6,7 +6,10 @@ type GeoLocation = {
     city: string;
     country: string, 
     countryRegion: string, 
-    region: string 
+    region: string,
+    longitude: string, 
+    latitude: string, 
+    postalCode: string 
 }
 
 const ProfilePage: React.FC = () => {
@@ -32,7 +35,7 @@ const ProfilePage: React.FC = () => {
         <div>
             <h1>Profile Page</h1>
             <p>Welcome to your profile!</p>
-            <p>Geo Location: {geoLocation?.city}</p>
+            <p>Geo Location: {geoLocation?.country}</p>
         </div>
     );
 };
